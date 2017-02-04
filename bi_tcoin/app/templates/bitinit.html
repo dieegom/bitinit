@@ -22,7 +22,7 @@
         </tr>
         <tr>
             <td>Hash Rate</td>
-            <td>{{ bitcoin.hash_rate }} Hz/s</td>
+            <td>{{ bitcoin.hash_rate }} GHz/s</td>
         </tr>
         <tr>
             <td>Volume estimado de transação</td>
@@ -30,7 +30,11 @@
         </tr>
         <tr>
             <td>Número de transações</td>
-            <td>US$: {{ bitcoin.estimated_transaction_volume_usd }}</td>
+            <td>{{ bitcoin.estimated_transaction_volume_usd }}</td>
+        </tr>
+        <tr>
+            <td>Volume de transações em bitcoins</td>
+            <td>BTC: {{ bitcoin.trade_volume_btc }}</td>
         </tr>
     </table>
     <h2>Informações de Câmbio</h2>
@@ -61,5 +65,12 @@
             <td>{{ cambio.HKD.symbol }}{{ cambio.HKD.buy }}</td>
         </tr>
     </table>
+    <h1>Market Share de Bitcoins</h1>
+    <h2>1 dia</h2>
+    {{ mkt_shr_1d }}
+    <h2>5 dias</h2>
+    {{ mkt_shr_5d }}
+    <h2>10 dias</h2>
+    {{ mkt_shr_10d }}
 </body>
 </html>
