@@ -17,9 +17,9 @@ def get_cambio():
     except:
         print("sem conexão")
 
-def get_chart():
+def get_chart(chart):
     try:
-        a = requests.get("https://api.blockchain.info/charts/$chartName?timespan=$timespan&rollingAverage=$rollingAverage&start=$start&format=$format&sampled=$sampled")
+        a = requests.get(chart)
 
 #ex: https://api.blockchain.info/charts/transactions-per-second?timespan=5weeks&rollingAverage=8hours&format=json
 #$timespan Duration of the chart, default is 1 year for most charts, 1 week for mempool charts. (Optional)
