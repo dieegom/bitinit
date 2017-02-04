@@ -5,5 +5,8 @@ from app.main import get_stat
 
 def home(request):
 
-    context = {"bitcoin": get_stat()}
-    return render(request,'index.html',context)
+    try:
+        context = {"bitcoin": get_stat()}
+        return render(request,'index.html',context)
+    except:
+        return render(request, 'index.html',"")

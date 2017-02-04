@@ -4,5 +4,8 @@ import requests
 #depois eh soh entrar na pasta ~/PycharmProjects/BItcoin e digitar: python main.py
 
 def get_stat():
-    a = requests.get("https://api.blockchain.info/stats")
-    return a.json()
+    try:
+        a = requests.get("https://api.blockchain.info/stats")
+        return a.json()
+    except:
+        print("sem conexão")
