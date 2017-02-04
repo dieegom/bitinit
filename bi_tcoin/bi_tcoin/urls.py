@@ -15,9 +15,10 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from app.views import home
+from app.views import home, bitinit
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', home, name='home'),
+    url(r'^bitinit/$', bitinit, name='bitinit'),
 ]

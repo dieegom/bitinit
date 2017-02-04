@@ -9,3 +9,10 @@ def get_stat():
         return a.json()
     except:
         print("sem conexão")
+
+def get_cambio():
+    try:
+        a = requests.get("https://blockchain.info/ticker")
+        return a.json()
+    except:
+        print("sem conexão")

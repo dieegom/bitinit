@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BIT INIT - Aplicação Coletiva e OpenSource</title>
+</head>
+<body>
+    <h1>Bem vindo ao Bitinit!!</h1>
+    <h4>O propósito desta aplicação é demonstrar as funcionalidades das APIs para o mercado de Bitcoins e, ao mesmo
+    tempo, auxiliar as pessoas que buscam dados sobre este mercado. Fiquem à vontade para contribuir!</h4>
+    <h4><a href="https://github.com/dieegom/bitinit">BitiniT</a></h4>
+
+    <h2>Estatísticas atuais do mercado de bitcoins:</h2>
+    <table width="80%">
+        <tr>
+            <td style="width:50%">Título</td>
+            <td>Informação</td>
+        </tr>
+        <tr>
+            <td>Valor do Bitcoin em USD</td>
+            <td>US$: {{ bitcoin.market_price_usd }}</td>
+        </tr>
+        <tr>
+            <td>Hash Rate</td>
+            <td>{{ bitcoin.hash_rate }} Hz/s</td>
+        </tr>
+        <tr>
+            <td>Volume estimado de transação</td>
+            <td>US$: {{ bitcoin.estimated_transaction_volume_usd }}</td>
+        </tr>
+        <tr>
+            <td>Número de transações</td>
+            <td>US$: {{ bitcoin.estimated_transaction_volume_usd }}</td>
+        </tr>
+    </table>
+    <h2>Informações de Câmbio</h2>
+    <table width="80%">
+        <tr>
+            <td>Moeda</td>
+            <td>Venda</td>
+            <td>Compra</td>
+        </tr>
+        <tr>
+            <td style="width:30%">USD</td>
+            <td>{{ cambio.USD.symbol }}{{ cambio.USD.sell }}</td>
+            <td>{{ cambio.USD.symbol }}{{ cambio.USD.buy }}</td>
+        </tr>
+        <tr>
+            <td style="width:30%">BRL</td>
+            <td>{{ cambio.BRL.symbol }}{{ cambio.BRL.sell }}</td>
+            <td>{{ cambio.BRL.symbol }}{{ cambio.BRL.buy }}</td>
+        </tr>
+        <tr>
+            <td style="width:30%">EUR</td>
+            <td>{{ cambio.EUR.symbol }}{{ cambio.EUR.sell }}</td>
+            <td>{{ cambio.EUR.symbol }}{{ cambio.EUR.buy }}</td>
+        </tr>
+        <tr>
+            <td style="width:30%">HKD</td>
+            <td>{{ cambio.HKD.symbol }}{{ cambio.HKD.sell }}</td>
+            <td>{{ cambio.HKD.symbol }}{{ cambio.HKD.buy }}</td>
+        </tr>
+    </table>
+</body>
+</html>
