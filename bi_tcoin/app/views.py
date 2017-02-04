@@ -24,7 +24,9 @@ def bitinit(request):
                    "chart_market_price": get_chart("https://api.blockchain.info/charts/market-price?timespan=5weeks&rollingAverage=8hours&format=json"),
                    "chart_orph_blocks": get_chart("https://api.blockchain.info/charts/n-orphaned-blocks?timespan=5weeks&rollingAverage=8hours&format=json"),
                    "chart_hash_rate": get_chart("https://api.blockchain.info/charts/hash-rate?timespan=5weeks&rollingAverage=8hours&format=json"),
-
+                   "chart_difficult": get_chart("https://api.blockchain.info/charts/difficulty?timespan=5weeks&rollingAverage=8hours&format=json"),
+                   "chart_cost": get_chart("https://api.blockchain.info/charts/cost-per-transaction-percent?timespan=5weeks&rollingAverage=8hours&format=json"),
+                   "chart_wallet": get_chart("https://api.blockchain.info/charts/my-wallet-n-users?timespan=5weeks&rollingAverage=8hours&format=json"),
                    }
         return render(request,'bitinit.html',context)
     except:
