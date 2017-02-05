@@ -1,145 +1,191 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-    <h1> Seja bem vindo ao Bit Init!!</h1>
-    <h2>Somos uma página dedicada a todos aqueles que se interessam em Bitcoins mas não fazem ideia do que seja.</h2>
-    <h3>Todos os textos aqui serão dedicados não só a explicar o que é bitcoin, mas também como desenvolver aplicações para isso</h3>
-    <h4>Os desenvolvedores também são iniciantes, portanto vocês aprenderão junto conosco!!</h4>
+{% extends 'base.html' %}
+{% load static %}
 
-    <h2>Links interessantes</h2>
-    <ul>
-        <li>Informações sobre bitcoins
-            <ul>
-                <li><a href="#wtfisbitcoin">O que é um bitcoin?</a></li>
-                <li><a href="#bitcoinmarket">Quais são as formas de interagir com este mercado?</a></li>
-                <li>Que outras criptomoedas existem?</li>
-                <li>Contato: De um noob pra outro</li>
-            </ul>
-            </li>
-        <li>Programando aplicações para bitcoins
-            <ul>
-                <li>Preparando o ambiente
-                    <li>Linux</li>
-                    <li>Python</li>
-                    <li>virtualenv</li>
+{% block body %}
+<div class="parallax-container">
+    <div class="parallax blur"><img src="{% static "base.jpeg" %}" ></div>
+    <br>
+    <br>
+    <div class="container parallax-color">
+        <h1 class="brand-logo center-align">Bitinit</h1>
+        <h2 class="center-align">Somos uma página dedicada a todos aqueles que se interessam em Bitcoin mas não fazem ideia do que seja.</h2>
+        <!-- <h3 class=" center-align legenda">Todos os textos aqui serão dedicados não só a explicar o que é bitcoin, mas também como desenvolver aplicações para isso</h3> -->
+    </div>
+    <br>
+    <br>
+</div>
+
+<div class="container">
+    <!-- <h4>Os desenvolvedores também são iniciantes, portanto vocês aprenderão junto conosco!!</h4> -->
+    <h4>Links interessantes</h4>
+    <div class="row">
+        <div class="col s12 m6">
+            <ul class="collapsible" data-collapsible="accordion">
+                <li>
+                    <div class="collapsible-header"><i class="material-icons">info</i>Informações sobre Bitcoin</div>
+                    <div class="collapsible-body">
+                        <ul class="interno">
+                            <li><a href="#wtfisbitcoin">O que é um bitcoin?</a></li>
+                            <li><a href="#bitcoinmarket">Quais são as formas de interagir com este mercado?</a></li>
+                            <li>Que outras criptomoedas existem?</li>
+                            <li>Contato: De um noob pra outro</li>
+                        </ul>
+                    </div>
                 </li>
-                <li>APIs existentes</li>
-                <li>Django em 10 minutos</li>
-                <li>Primeira aplicação</li>
+                <li>
+                    <div class="collapsible-header"><i class="material-icons">library_books</i>Aplicações para Bitcoin</div>
+                    <div class="collapsible-body">
+                        <ul class="interno">
+                            <li>Linux</li>
+                            <li>Python</li>
+                            <li>virtualenv</li>
+                            <li>APIs existentes</li>
+                            <li>Django em 10 minutos</li>
+                            <li>Primeira aplicação</li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <div class="collapsible-header"><i class="material-icons">web</i>Aplicação Bitinit</div>
+                    <div class="collapsible-body">
+                        <ul class="interno">
+                            <li><a href="{% url 'bitinit' %}">Acesse aqui</a></li>
+                        </ul>
+                        <p>Sistema escrito em Python, iremos guiar este site em cima desta linguagem principalmente; para facilitar a construção</p>
+                    </div>
+                </li>
             </ul>
-        </li>
-        <li>Aplicação Bitinit
-            <ul>
-                <li><a href="{% url 'bitinit' %}">Acesse aqui</a></li>
-            </ul>
-        </li>
-    </ul>
+        </div>
 
-    <p>Como somos desenvolvedores Python, iremos guiar este site em cima desta linguagem principalmente.</p>
-    <p>Para facilitar a construção</p>
-    <h1>Valor atual de 1 Bitcoin US$ {{ bitcoin.market_price_usd }} </h1>
+        <div class="col s12 m6">
+            <div class="card light-blue darken-3">
+                <div class="card-image">
+                  <img src="{% static 'coin.jpeg'%}">
+                  <span class="card-title">Valor do Bitcoin</span>
+              </div>
+              <div class="card-content white-text">
+                  <p>US$ {{ bitcoin.market_price_usd }}</p>
+              </div>
+          </div>
+      </div>
 
-    <div id="wtfisbitcoin">
-        <h2>O que é, afinal, um bitcoin?</h2>
-        <h3><p>Bitcoin é uma criptomoeda desenvolvida por Satoshi Nakamoto, projetada para ser descentralizada
+      <div class="col s12 m6">
+         <div class="card">
+            <div class="card-image waves-effect waves-block waves-light">
+            <img class="activator" src="{% static 'coin.jpeg'%}">
+          </div>
+          <div class="card-content">
+              <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
+              <p><a href="#">This is a link</a></p>
+          </div>
+          <div class="card-reveal">
+              <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+              <p>Here is some more information about this product that is only revealed once clicked on.</p>
+          </div>
+      </div>
+
+  </div>
+</div>
+
+
+<div id="wtfisbitcoin">
+    <h2>O que é, afinal, um bitcoin?</h2>
+    <h3><p>Bitcoin é uma criptomoeda desenvolvida por Satoshi Nakamoto, projetada para ser descentralizada
         e de código aberto. Mas o quê tudo isso significa?<br/>
         Significa que esta moeda online não sofre influência direta de intervenções governamentais e qualquer
         um interessado pode auditar as transações. Isto torna a moeda mais independente e traz uma série de
         benefícios! <br/>
-            Como o nosso foco aqui é botar a mão na massa, quem quiser saber mais detalhes a respeito, pode
-            acessar os links a seguir:<br/>
-            <ul>
-                <li><a href="https://pt.wikipedia.org/wiki/Bitcoin">Wikipedia</a></li>
-                <li><a href="https://www.bitcoinbrasil.com.br/o-que-e-bitcoin">Bircoin Brasil</a></li>
-                <li><a href="https://youtu.be/1WQYLvbGFC0">Video explicativo</a></li>
-            </ul>
-        </p>
-        </h3>
-    </div>
+        Como o nosso foco aqui é botar a mão na massa, quem quiser saber mais detalhes a respeito, pode
+        acessar os links a seguir:<br/>
+        <ul>
+            <li><a href="https://pt.wikipedia.org/wiki/Bitcoin">Wikipedia</a></li>
+            <li><a href="https://www.bitcoinbrasil.com.br/o-que-e-bitcoin">Bircoin Brasil</a></li>
+            <li><a href="https://youtu.be/1WQYLvbGFC0">Video explicativo</a></li>
+        </ul>
+    </p>
+</h3>
+</div>
 
-    <div id="bitcoinmarket">
-        <h2>Como você pode intergir com esse mercado</h2>
-        <h3>A imagem profissional abaixo vai ensiná-lo quais os principais postos de trabalho dentro
+<div id="bitcoinmarket">
+    <h2>Como você pode intergir com esse mercado</h2>
+    <h3>A imagem profissional abaixo vai ensiná-lo quais os principais postos de trabalho dentro
         da rede de bitcoins atualmente e quais as contribuições que podem ser feitas.</h3>
         <img src="Untitled.png"/>
         <ul>
             <li><strong>1)Algoritmo principal Bitcoin:</strong><br/>
-            <ul>
-                <li><strong>Desenvolvimento de código-fonte:</strong> O código de desenvolvimento do bitcoin é
-                aberto e todos podem contribuir para a melhoria das funcionalidades. É só acessar e contribuir:
-                <a href="https://github.com/bitcoin/bitcoin">GitHub</a><br/>PS: se você não sabe nada de GitHub,
-                sugiro que acesse: <a href="https://guides.github.com/activities/hello-world/">link</a>
-                </li>
-            </ul>
+                <ul>
+                    <li><strong>Desenvolvimento de código-fonte:</strong> O código de desenvolvimento do bitcoin é
+                        aberto e todos podem contribuir para a melhoria das funcionalidades. É só acessar e contribuir:
+                        <a href="https://github.com/bitcoin/bitcoin">GitHub</a><br/>PS: se você não sabe nada de GitHub,
+                        sugiro que acesse: <a href="https://guides.github.com/activities/hello-world/">link</a>
+                    </li>
+                </ul>
             </li>
             <li><strong>2)Blockchain:</strong> O Blockchain é o protocolo pelo qual a rede trabalha. Se você
-            leu os links anteiores, sabe que sua possibilidade de auditoria por qualquer um o torna uma ferramenta
-            incrível. Para contribuir, basta fazer da mesma forma que para o código-fonte.<br/>
-            Para saber mais: <a href="http://blogs.wsj.com/cio/2016/02/02/cio-explainer-what-is-blockchain/">
-            What is Blockchain?</a></li>
-            <li><strong>3)Testnet3:</strong> A rede testnet3 é utilizada para testes de novos códigos. Se você
-            criou uma nova aplicação e precisa saber se funciona, UTILIZE ESSA REDE! Isso evita que você perca
-            seus bitcoins por algum erro de código.<br/>
-            Wiki do Bitcoin: <a href="https://en.bitcoin.it/wiki/Testnet">Link</a></li>
-            <li><strong>4)Mineração de Bitcoins:</strong> Se você quer descobrir os próximos bitcoins no mundo,
-            seja um minerador! De uma maneira beeeeem simples, minerar Bitcoins é "emprestar" processamento de
-            suas máquinas para que a rede funcione. Em troca desta ajuda, o sistema te remunera com alguns décimos
-            de bitcoins. Infelizmente grandes corporações criaram clusters gigantescos com diversas máquinas e um
-            processamento poderoso, inviabilizando os marinheiros de primeira viagem a colocar seu próprio hardware
-            e começar a minerar. Felizmente, existem algumas outras opções como financiar um processamento através
-            da internet (mineração em nuvem) e também os pools, onde diversos mineradores independentes se unem para
-            minerar em conjunto. O link a seguir é um excelente guia: <a href="https://www.hobbymining.com/">
-            Hobby Mining</a></li>
-            <li><strong>5)Cloud Mining:</strong> Para quem quer apenas investir sem muitas preocupações de hardware,
-            programação, gastos com energia e outros, é possível alugar hardware em nuvem para que outra empresa
-            cuide destes problema pra você. Basicamente é possível pagar um valor mensal, único ou anual e depois
-            só colher os resultados. Um exemplo deste tipo de empresa é a <a href="https://www.genesis-mining.com/">
-            Genesis Mining</a></li>
-            <li><strong>6)Pool:</strong> Os pools são grupos de mineradores independentes que se uniram para fazer
-            frente às grandes mineradoras corporativas dos dias atuais. A Slush Pool, primeiro pool de mineradores
-            de Bitcoin do mundo pode ser acessada neste link: <a href="https://slushpool.com/home/">Link</a></li>
-            <li><strong>7) Mineração independente:</strong> Para quem insiste em ser um lobo solitário, ainda
-            existe salvação. É possível comprar um computador ASICs especializado para a mineração de bitcoins e
-            deixar ele rodando. Com um pouco mais de conhecimento de eletrônica (e coragem!) é possível também
-            construir um. Vale lembrar que é preciso fazer um bom cálculo de retorno de investimento, como os
-            gastos de energia elétrica, por exemplo. Quem quiser entender mais sobre essa arquitetura, pode
-            acessar: <a href="https://en.bitcoin.it/wiki/ASIC">Bitcoin wiki - ASICs</a></li>
-            <li><strong>8) Bolsa de valores:</strong> Se existem especulações sobre o Bitcoin e também variações
-            desta moeda em relação às outras, existe a possibilidade de ganhar dinheiro com esta flutuação. Pensando
-            nisso, diversas empresas foram criadas para funcionar como uma espécie de bolsa de valores, através de
-            plataformas de compra e venda de bitcoins. Um exemplo destas empresas é a brasileira
-            <a href="https://foxbit.com.br/">FoxBit</a></li>
-            <li><strong>9) Troca direta:</strong> Como o bitcoin pode ser trocado diretamente entre os usuários, é
-            possível também que você faça e receba pagamentos sem intermediários, reduzindo custos e também dando
-            mais liberdade de atuação. Para este tipo de ação (na verdade para qualquer transação de bitcoin) é
-            preciso ter uma carteira de bitcoins. Depois disso, é só você passar um endereço para o outro usuário
-            e através deste endereço ele consegue transferir os bitcoins pra você! É simples e seguro. Um bom
-            site com carterias para Bitcoins é a <a href="https://blockchain.info/wallet/#/">Blockchain Wallet</a>
-            </li>
-            <li><strong>10) Prestação de serviços:</strong> Aqui o céu é o limite! Existem diversos tipos de serviços/
-            produtos que podem ser trocados por Bitcoins. Empresas que te pagam em Bitcoins para assistir propagandas,
-            pagamento em Bitcoins para cartões de crédito, compra de jogos e muito mais! É bem simples de se aplicar.
-            Para saber mais sobre como construir um sistema usando APIs para a rede Bitcoin, acesse nossos tutoriais
-            de programador.</li>
-            <li><strong>11) Queima de Bitcoins:</strong> Apesar de ser uma espécie de prestação de serviços também,
-            preferi separar os assuntos para que fosse possível explicar este tópico em detalhes. Os Block Chains
-            são completamente rastreáveis e seus registros são vitalícios, ou seja, se você marcar alguma informação
-            lá, ela vai estar lá para sempre. Muitas pessoas estão utilizando esta propriedade para registrarem
-            informações de marca, contratos e diversas outras informações que podem ser utilizadas futuramente.
-            Isto abre espaço para um novo campo de serviços. Vale lembrar apenas que você pode queimar poucos
-            satoshis (menor unidade de bitcoins existentes) por requisição. Chamamos isso de queimar Bitcoins pois
-            os Bitcoins gastos desta maneira não podem jamais ser recuperados. Saiba mais:
-            <a href="https://www.quora.com/How-can-the-Bitcoin-blockchain-be-used-to-register-certificates">Link</a>
-            </li>
-            <li><strong>Dica extra!</strong> Se você tem preguiça e quer adquirir Bitcoins gratuitamente (não é
-            esquema de pirâmide nem marketing multinível), você precisa aprender sobre faucets:
-            <a href="https://99bitcoins.com/top-10-bitcoin-faucets/">Link</a></li>
-        </ul>
+                leu os links anteiores, sabe que sua possibilidade de auditoria por qualquer um o torna uma ferramenta
+                incrível. Para contribuir, basta fazer da mesma forma que para o código-fonte.<br/>
+                Para saber mais: <a href="http://blogs.wsj.com/cio/2016/02/02/cio-explainer-what-is-blockchain/">
+                What is Blockchain?</a></li>
+                <li><strong>3)Testnet3:</strong> A rede testnet3 é utilizada para testes de novos códigos. Se você
+                    criou uma nova aplicação e precisa saber se funciona, UTILIZE ESSA REDE! Isso evita que você perca
+                    seus bitcoins por algum erro de código.<br/>
+                    Wiki do Bitcoin: <a href="https://en.bitcoin.it/wiki/Testnet">Link</a></li>
+                    <li><strong>4)Mineração de Bitcoins:</strong> Se você quer descobrir os próximos bitcoins no mundo,
+                        seja um minerador! De uma maneira beeeeem simples, minerar Bitcoins é "emprestar" processamento de
+                        suas máquinas para que a rede funcione. Em troca desta ajuda, o sistema te remunera com alguns décimos
+                        de bitcoins. Infelizmente grandes corporações criaram clusters gigantescos com diversas máquinas e um
+                        processamento poderoso, inviabilizando os marinheiros de primeira viagem a colocar seu próprio hardware
+                        e começar a minerar. Felizmente, existem algumas outras opções como financiar um processamento através
+                        da internet (mineração em nuvem) e também os pools, onde diversos mineradores independentes se unem para
+                        minerar em conjunto. O link a seguir é um excelente guia: <a href="https://www.hobbymining.com/">
+                        Hobby Mining</a></li>
+                        <li><strong>5)Cloud Mining:</strong> Para quem quer apenas investir sem muitas preocupações de hardware,
+                            programação, gastos com energia e outros, é possível alugar hardware em nuvem para que outra empresa
+                            cuide destes problema pra você. Basicamente é possível pagar um valor mensal, único ou anual e depois
+                            só colher os resultados. Um exemplo deste tipo de empresa é a <a href="https://www.genesis-mining.com/">
+                            Genesis Mining</a></li>
+                            <li><strong>6)Pool:</strong> Os pools são grupos de mineradores independentes que se uniram para fazer
+                                frente às grandes mineradoras corporativas dos dias atuais. A Slush Pool, primeiro pool de mineradores
+                                de Bitcoin do mundo pode ser acessada neste link: <a href="https://slushpool.com/home/">Link</a></li>
+                                <li><strong>7) Mineração independente:</strong> Para quem insiste em ser um lobo solitário, ainda
+                                    existe salvação. É possível comprar um computador ASICs especializado para a mineração de bitcoins e
+                                    deixar ele rodando. Com um pouco mais de conhecimento de eletrônica (e coragem!) é possível também
+                                    construir um. Vale lembrar que é preciso fazer um bom cálculo de retorno de investimento, como os
+                                    gastos de energia elétrica, por exemplo. Quem quiser entender mais sobre essa arquitetura, pode
+                                    acessar: <a href="https://en.bitcoin.it/wiki/ASIC">Bitcoin wiki - ASICs</a></li>
+                                    <li><strong>8) Bolsa de valores:</strong> Se existem especulações sobre o Bitcoin e também variações
+                                        desta moeda em relação às outras, existe a possibilidade de ganhar dinheiro com esta flutuação. Pensando
+                                        nisso, diversas empresas foram criadas para funcionar como uma espécie de bolsa de valores, através de
+                                        plataformas de compra e venda de bitcoins. Um exemplo destas empresas é a brasileira
+                                        <a href="https://foxbit.com.br/">FoxBit</a></li>
+                                        <li><strong>9) Troca direta:</strong> Como o bitcoin pode ser trocado diretamente entre os usuários, é
+                                            possível também que você faça e receba pagamentos sem intermediários, reduzindo custos e também dando
+                                            mais liberdade de atuação. Para este tipo de ação (na verdade para qualquer transação de bitcoin) é
+                                            preciso ter uma carteira de bitcoins. Depois disso, é só você passar um endereço para o outro usuário
+                                            e através deste endereço ele consegue transferir os bitcoins pra você! É simples e seguro. Um bom
+                                            site com carterias para Bitcoins é a <a href="https://blockchain.info/wallet/#/">Blockchain Wallet</a>
+                                        </li>
+                                        <li><strong>10) Prestação de serviços:</strong> Aqui o céu é o limite! Existem diversos tipos de serviços/
+                                            produtos que podem ser trocados por Bitcoins. Empresas que te pagam em Bitcoins para assistir propagandas,
+                                            pagamento em Bitcoins para cartões de crédito, compra de jogos e muito mais! É bem simples de se aplicar.
+                                            Para saber mais sobre como construir um sistema usando APIs para a rede Bitcoin, acesse nossos tutoriais
+                                            de programador.</li>
+                                            <li><strong>11) Queima de Bitcoins:</strong> Apesar de ser uma espécie de prestação de serviços também,
+                                                preferi separar os assuntos para que fosse possível explicar este tópico em detalhes. Os Block Chains
+                                                são completamente rastreáveis e seus registros são vitalícios, ou seja, se você marcar alguma informação
+                                                lá, ela vai estar lá para sempre. Muitas pessoas estão utilizando esta propriedade para registrarem
+                                                informações de marca, contratos e diversas outras informações que podem ser utilizadas futuramente.
+                                                Isto abre espaço para um novo campo de serviços. Vale lembrar apenas que você pode queimar poucos
+                                                satoshis (menor unidade de bitcoins existentes) por requisição. Chamamos isso de queimar Bitcoins pois
+                                                os Bitcoins gastos desta maneira não podem jamais ser recuperados. Saiba mais:
+                                                <a href="https://www.quora.com/How-can-the-Bitcoin-blockchain-be-used-to-register-certificates">Link</a>
+                                            </li>
+                                            <li><strong>Dica extra!</strong> Se você tem preguiça e quer adquirir Bitcoins gratuitamente (não é
+                                                esquema de pirâmide nem marketing multinível), você precisa aprender sobre faucets:
+                                                <a href="https://99bitcoins.com/top-10-bitcoin-faucets/">Link</a></li>
+                                            </ul>
 
-    </div>
-</body>
-</html>
+                                        </div>
+                                    </div>
+                                    {% endblock %}
+

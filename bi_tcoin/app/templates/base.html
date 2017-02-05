@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="{% static "css/materialize.min.css" %}"  media="screen,projection"/>
+    <link rel="stylesheet" type="text/css" href="{% static "css/base.css" %}">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <nav class=" light-blue darken-3">
+        <div class="nav-wrapper container">
+            <a href="#" class="brand-logo">Bitinit</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="{% url 'bitinit' %}">Acesse aqui</a></li>
+                <li><a href="#wtfisbitcoin">O que é um bitcoin?</a></li>
+                <li><a href="#bitcoinmarket">Quais as formas de interagir com mercado?</a></li>
+            </ul>
+        </div>
+    </nav>
+        {% block body %}
+
+        {% endblock %}
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="{% static 'js/materialize.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/base.js' %}"></script>
+</body>
+</html>
