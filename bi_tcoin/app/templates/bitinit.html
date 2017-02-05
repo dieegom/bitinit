@@ -5,6 +5,7 @@
     <title>BIT INIT - Aplicação Coletiva e OpenSource</title>
 </head>
 <body>
+
     <h1>Bem vindo ao Bitinit!!</h1>
     <h4>O propósito desta aplicação é demonstrar as funcionalidades das APIs para o mercado de Bitcoins e, ao mesmo
     tempo, auxiliar as pessoas que buscam dados sobre este mercado. Fiquem à vontade para contribuir!</h4>
@@ -60,9 +61,9 @@
             <td>{{ cambio.EUR.symbol }}{{ cambio.EUR.buy }}</td>
         </tr>
         <tr>
-            <td style="width:30%">HKD</td>
-            <td>{{ cambio.HKD.symbol }}{{ cambio.HKD.sell }}</td>
-            <td>{{ cambio.HKD.symbol }}{{ cambio.HKD.buy }}</td>
+            <td style="width:30%">CNY</td>
+            <td>{{ cambio.CNY.symbol }}{{ cambio.CNY.sell }}</td>
+            <td>{{ cambio.CNY.symbol }}{{ cambio.CNY.buy }}</td>
         </tr>
     </table>
     <h1>Market Share de Bitcoins</h1>
@@ -73,23 +74,24 @@
     <h2>10 dias</h2>
     {{ mkt_shr_10d }}
 
-    <!--<h1>Gráficos</h1>-->
-    <!--<h2>Transações por segundo</h2>-->
-    <!--{{ chart_transact_per_sec }}-->
-    <!--<h2>Bitcoins em circulação</h2>-->
-    <!--{{ chart_bitcoin_circ }}-->
-    <!--<h2>Preço de mercado</h2>-->
-    <!--{{ chart_market_price }}-->
-    <!--<h2>Blocos Órfãos</h2>-->
-    <!--{{ chart_orph_blocks }}-->
-    <!--<h2>Hash rate</h2>-->
-    <!--{{ chart_hash_rate }}-->
-    <!--<h2>Dificuldade de se encontrar o próximo bloco</h2>-->
-    <!--{{ chart_difficult }}-->
-    <!--<h2>Custo em % por transação de bitcoins</h2>-->
-    <!--{{ chart_cost }}-->
-    <!--<h2>Usuários de carteiras do Blockchain</h2>-->
-   <!--{{ chart_wallet }}-->
+    <h1>Gráficos</h1>
+    <h2>Transações por segundo</h2>
+    {{ chart_transact_per_sec }}
+    <h2>Bitcoins em circulação</h2>
+    {{ chart_bitcoin_circ }}
+    <h2>Preço de mercado</h2>
+    {{ chart_market_price }}<br/><br/>
+    {{ var }}
+    <h2>Blocos Órfãos</h2>
+    {{ chart_orph_blocks }}
+    <h2>Hash rate</h2>
+    {{ chart_hash_rate }}
+    <h2>Dificuldade de se encontrar o próximo bloco</h2>
+    {{ chart_difficult }}
+    <h2>Custo em % por transação de bitcoins</h2>
+    {{ chart_cost }}
+    <h2>Usuários de carteiras do Blockchain</h2>
+   {{ chart_wallet }}
 
 <h3> Links das APIs utilizadas:</h3>
 <a href="https://blockchain.info/api">Blockchain API</a>

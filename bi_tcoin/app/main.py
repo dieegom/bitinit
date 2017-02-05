@@ -1,3 +1,6 @@
+import datetime
+import traceback
+
 import requests
 
 #funciona se for dentro do venv35 na pasta (~/Documents/Bitenv) digitando: source vir35/bin/activate
@@ -39,3 +42,22 @@ def get_mkt_share(timespan):
         return a.json()
     except:
         print("sem conexão")
+
+def daterange(start_date, end_date):
+    for n in range(int ((end_date - start_date).days)):
+        yield start_date + datetime.timedelta(n)
+
+def get_get():
+    a=[]
+    try:
+        date_init = "2017-01-01"
+        date_end = datetime.datetime.today()
+        start = datetime.datetime.strptime(date_init, "%Y-%m-%d")
+
+        while start < date_end:
+            a.append(requests.get("http://api.fixer.io/"+start.strftime('%Y-%m-%d')+"?symbols=CNY&base=USD").json())
+            start = start + datetime.timedelta(days=1)
+        return a
+    except:
+        print(traceback.print_exc(file=sys.stdout))
+        return "None"
