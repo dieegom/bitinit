@@ -15,10 +15,12 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from app.views import home, bitinit
+from app.views import home, bitinit, wtfisbitcoin, market
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', home, name='home'),
     url(r'^bitinit/$', bitinit, name='bitinit'),
+    url(r'^whatisbitcoin/$', wtfisbitcoin, name='whatisbitcoin'),
+    url(r'^market/$', market, name='market')
 ]
