@@ -11,6 +11,10 @@ def home(request):
     except:
         return render(request, 'index.html',"")
 
+def wtfisbitcoin(request):
+
+    return render(request, 'wtfisbitcoin.html')
+
 def bitinit(request):
 
     try:
