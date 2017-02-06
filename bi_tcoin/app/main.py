@@ -28,7 +28,6 @@ def get_chart(chart):
 #$format Either JSON or CSV, defaults to JSON. (Optional)
 #$sampled Boolean set to 'true' or 'false' (default 'true'). If true, limits the number of datapoints returned to ~1.5k for performance reasons. (Optional)
 #Please note that values for charts can be represented in scientific notation (14,627,700 is represented as 1.46277E7)
-
         return a.json()
     except:
         print("sem conexão")

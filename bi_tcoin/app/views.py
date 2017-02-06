@@ -15,6 +15,10 @@ def wtfisbitcoin(request):
 
     return render(request, 'wtfisbitcoin.html')
 
+def market(request):
+
+    return render(request, 'market.html')
+
 def bitinit(request):
 
     try:
