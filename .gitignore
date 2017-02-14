@@ -1,5 +1,6 @@
 *.idea*
 *vir*
+*.venv*
 .python-version
 **/*.sqlite3
 **/*.pyc
