@@ -3,3 +3,5 @@
 .python-version
 **/*.sqlite3
 **/*.pyc
+*__pycache__*
+*pyc

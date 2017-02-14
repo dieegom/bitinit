@@ -5,6 +5,7 @@
     <title>BIT INIT - Aplicação Coletiva e OpenSource</title>
 </head>
 <body>
+
     <h1>Bem vindo ao Bitinit!!</h1>
     <h4>O propósito desta aplicação é demonstrar as funcionalidades das APIs para o mercado de Bitcoins e, ao mesmo
     tempo, auxiliar as pessoas que buscam dados sobre este mercado. Fiquem à vontade para contribuir!</h4>
@@ -60,36 +61,186 @@
             <td>{{ cambio.EUR.symbol }}{{ cambio.EUR.buy }}</td>
         </tr>
         <tr>
-            <td style="width:30%">HKD</td>
-            <td>{{ cambio.HKD.symbol }}{{ cambio.HKD.sell }}</td>
-            <td>{{ cambio.HKD.symbol }}{{ cambio.HKD.buy }}</td>
+            <td style="width:30%">CNY</td>
+            <td>{{ cambio.CNY.symbol }}{{ cambio.CNY.sell }}</td>
+            <td>{{ cambio.CNY.symbol }}{{ cambio.CNY.buy }}</td>
         </tr>
     </table>
-    <h1>Market Share de Bitcoins</h1>
-    <h2>1 dia</h2>
-    {{ mkt_shr_1d }}
-    <h2>5 dias</h2>
-    {{ mkt_shr_5d }}
-    <h2>10 dias</h2>
-    {{ mkt_shr_10d }}
 
-    <!--<h1>Gráficos</h1>-->
-    <!--<h2>Transações por segundo</h2>-->
-    <!--{{ chart_transact_per_sec }}-->
-    <!--<h2>Bitcoins em circulação</h2>-->
-    <!--{{ chart_bitcoin_circ }}-->
-    <!--<h2>Preço de mercado</h2>-->
-    <!--{{ chart_market_price }}-->
-    <!--<h2>Blocos Órfãos</h2>-->
-    <!--{{ chart_orph_blocks }}-->
-    <!--<h2>Hash rate</h2>-->
-    <!--{{ chart_hash_rate }}-->
-    <!--<h2>Dificuldade de se encontrar o próximo bloco</h2>-->
-    <!--{{ chart_difficult }}-->
-    <!--<h2>Custo em % por transação de bitcoins</h2>-->
-    <!--{{ chart_cost }}-->
-    <!--<h2>Usuários de carteiras do Blockchain</h2>-->
-   <!--{{ chart_wallet }}-->
+    <h1>Market Share de Bitcoins</h1>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          {% autoescape off %}
+          {% for item in  mkt_shr_7d %}
+            {{ item }},
+          {% endfor %}
+          {% endautoescape %}
+        ]);
+
+        var options = {
+          title: '7 dias',
+          is3D: true,
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart_3d_7d'));
+        chart.draw(data, options);
+      }
+    </script>
+            <div id="piechart_3d_7d" style="width: 900px; height: 500px"></div>
+    <h1>Gráficos</h1>
+
+
+    “Powered by <a href="www.coindesk.com">CoinDesk”</a>,
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          {% autoescape off %}
+          {% for item in floating %}
+            {{ item }},
+          {% endfor %}
+          {% endautoescape %}
+        ]);
+
+        var options = {
+          title: 'Flutuação de Bitcoins em relação à moeda chinesa',
+          curveType: 'function',
+          legend: { position: 'bottom' },
+          vAxes: {0: {gridlines: {color: 'transparent'},
+                      format:"# USD"},
+                  1: {gridlines: {color: 'transparent'},
+                      format:"# USD"},
+                  },
+          series: {0: {targetAxisIndex:0},
+                   1:{targetAxisIndex:1},
+                  },
+          colors: ["red", "green"],
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chart_3'));
+
+        chart.draw(data, options);
+      }
+    </script>
+    <div id="curve_chart_3" style="width: 900px; height: 500px"></div>
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          {% autoescape off %}
+          {% for item in floating_blr %}
+            {{ item }},
+          {% endfor %}
+          {% endautoescape %}
+        ]);
+
+        var options = {
+          title: 'Flutuação de Bitcoins em relação à moeda brasileira',
+          curveType: 'function',
+          legend: { position: 'bottom' },
+          vAxes: {0: {gridlines: {color: 'transparent'},
+                      format:"# USD"},
+                  1: {gridlines: {color: 'transparent'},
+                      format:"# USD"},
+                  },
+          series: {0: {targetAxisIndex:0},
+                   1:{targetAxisIndex:1},
+                  },
+          colors: ["red", "green"],
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chart_4'));
+
+        chart.draw(data, options);
+      }
+    </script>
+    <div id="curve_chart_4" style="width: 900px; height: 500px"></div>
+
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          {% autoescape off %}
+          {% for item in floating_eur %}
+            {{ item }},
+          {% endfor %}
+          {% endautoescape %}
+        ]);
+
+        var options = {
+          title: 'Flutuação de Bitcoins em relação ao Euro',
+          curveType: 'function',
+          legend: { position: 'bottom' },
+          vAxes: {0: {gridlines: {color: 'transparent'},
+                      format:"# USD"},
+                  1: {gridlines: {color: 'transparent'},
+                      format:"# USD"},
+                  },
+          series: {0: {targetAxisIndex:0},
+                   1:{targetAxisIndex:1},
+                  },
+          colors: ["red", "green"],
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chart_5'));
+
+        chart.draw(data, options);
+      }
+    </script>
+    <div id="curve_chart_5" style="width: 900px; height: 500px"></div>
+
+
+    <h2>Blocos Órfãos</h2>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Dias', 'Bitcoins'],
+          {% for item in chart_orph_blocks %}
+            {{ item }},
+          {% endfor %}
+        ]);
+
+        var options = {
+          title: 'Bitcoins em circulação / dia',
+          curveType: 'function',
+          legend: { position: 'bottom' }
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chart_6'));
+
+        chart.draw(data, options);
+      }
+    </script>
+    <div id="curve_chart_6" style="width: 900px; height: 500px"></div>
+
+    <h2>Hash rate</h2>
+    {{ chart_hash_rate }}
+    <h2>Dificuldade de se encontrar o próximo bloco</h2>
+    {{ chart_difficult }}
+    <h2>Custo em % por transação de bitcoins</h2>
+    {{ chart_cost }}
+    <h2>Usuários de carteiras do Blockchain</h2>
+   {{ chart_wallet }}
 
 <h3> Links das APIs utilizadas:</h3>
 <a href="https://blockchain.info/api">Blockchain API</a>
